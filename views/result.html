@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        a {
+            display: block;
+            color: white;
+            background-color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Hallo <span id="name"></span> - <span id="nrp"></span>, selamat datang di mata kuliah <span id="course"></span></h3>
+        <p>jangan lupa sarapan terlebih dahulu ya :V </p>
+        <a href="/page1">Back</a>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const nrp = params.get('nrp');
+        const name = params.get('name');
+        const course = params.get('course');
+        
+        document.getElementById('nrp').textContent = nrp ? nrp : "Unknown";
+        document.getElementById('name').textContent = name ? name : "Guest";
+        document.getElementById('course').textContent = course ? course : "Not specified";
+    </script>
+</body>
+</html>
